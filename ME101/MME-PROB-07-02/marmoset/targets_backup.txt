@@ -1,0 +1,7 @@
+London -57.82 -53.21
+St_Jacobs 0 7.91
+Toronto 90.04 22.61
+Fergus 12.23 25.29
+Brantford 18.42 36.23
+Millbank -24.14 11.67
+Goderich -93.42 31.28

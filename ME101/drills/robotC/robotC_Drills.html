@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>robotC_Drills</title>
+      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(171, 178, 191); overflow: auto; background-color: rgb(40, 44, 52); }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(124, 135, 156); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: rgb(82, 139, 255); }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(124, 135, 156); border-color: rgb(75, 83, 98); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top: 2px dashed rgb(75, 83, 98); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(75, 83, 98); }
+.markdown-preview:not([data-use-github-style]) code { color: rgb(255, 255, 255); background-color: rgb(58, 63, 75); }
+.markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(49, 54, 63); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(255, 255, 255); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(75, 83, 98) rgb(75, 83, 98) rgb(62, 68, 81); background-color: rgb(58, 63, 75); }
+.markdown-preview[data-use-github-style] { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); overflow: scroll; background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; border: 0px none; background-color: rgb(231, 231, 231); }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left: 4px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { border-top: 1px solid rgb(204, 204, 204); background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; border-radius: 3px; background-color: rgba(0, 0, 0, 0.0392157); }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; border: 0px; background: transparent; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; border-radius: 3px; background-color: rgb(247, 247, 247); }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; border: 0px; background-color: transparent; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; border-width: 1px; border-style: solid; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; background-color: rgb(252, 252, 252); }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover .horizontal-scrollbar { visibility: visible; }
+.markdown-preview .task-list-item-checkbox { position: absolute; margin: 0.25em 0px 0px -1.4em; }
+.spell-check-misspelling .region {
+  border-bottom: 2px dotted rgba(255, 51, 51, 0.75);
+}
+.spell-check-corrections {
+  width: 25em !important;
+}
+
+pre.editor-colors {
+  background-color: #282c34;
+  color: #abb2bf;
+}
+pre.editor-colors .line.cursor-line {
+  background-color: rgba(153, 187, 255, 0.04);
+}
+pre.editor-colors .invisible {
+  color: #abb2bf;
+}
+pre.editor-colors .cursor {
+  border-left: 2px solid #528bff;
+}
+pre.editor-colors .selection .region {
+  background-color: #3e4451;
+}
+pre.editor-colors .bracket-matcher .region {
+  border-bottom: 1px solid #528bff;
+  box-sizing: border-box;
+}
+pre.editor-colors .invisible-character {
+  color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .indent-guide {
+  color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .wrap-guide {
+  background-color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .find-result .region.region.region,
+pre.editor-colors .current-result .region.region.region {
+  border-radius: 2px;
+  background-color: rgba(82, 139, 255, 0.24);
+  transition: border-color 0.4s;
+}
+pre.editor-colors .find-result .region.region.region {
+  border: 2px solid transparent;
+}
+pre.editor-colors .current-result .region.region.region {
+  border: 2px solid #528bff;
+  transition-duration: .1s;
+}
+pre.editor-colors .gutter .line-number {
+  color: #636d83;
+  -webkit-font-smoothing: antialiased;
+}
+pre.editor-colors .gutter .line-number.cursor-line {
+  color: #abb2bf;
+  background-color: #2c313a;
+}
+pre.editor-colors .gutter .line-number.cursor-line-no-selection {
+  background-color: transparent;
+}
+pre.editor-colors .gutter .line-number .icon-right {
+  color: #abb2bf;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed.git-line-removed::before {
+  bottom: -3px;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 25px;
+  border-bottom: 1px dotted rgba(224, 82, 82, 0.5);
+  pointer-events: none;
+}
+pre.editor-colors .gutter .line-number.folded,
+pre.editor-colors .gutter .line-number:after,
+pre.editor-colors .fold-marker:after {
+  color: #abb2bf;
+}
+.syntax--comment {
+  color: #5c6370;
+  font-style: italic;
+}
+.syntax--comment .syntax--markup.syntax--link {
+  color: #5c6370;
+}
+.syntax--entity.syntax--name.syntax--type {
+  color: #e5c07b;
+}
+.syntax--entity.syntax--other.syntax--inherited-class {
+  color: #98c379;
+}
+.syntax--keyword {
+  color: #c678dd;
+}
+.syntax--keyword.syntax--control {
+  color: #c678dd;
+}
+.syntax--keyword.syntax--operator {
+  color: #abb2bf;
+}
+.syntax--keyword.syntax--other.syntax--special-method {
+  color: #61afef;
+}
+.syntax--keyword.syntax--other.syntax--unit {
+  color: #d19a66;
+}
+.syntax--storage {
+  color: #c678dd;
+}
+.syntax--storage.syntax--type.syntax--annotation,
+.syntax--storage.syntax--type.syntax--primitive {
+  color: #c678dd;
+}
+.syntax--storage.syntax--modifier.syntax--package,
+.syntax--storage.syntax--modifier.syntax--import {
+  color: #abb2bf;
+}
+.syntax--constant {
+  color: #d19a66;
+}
+.syntax--constant.syntax--variable {
+  color: #d19a66;
+}
+.syntax--constant.syntax--character.syntax--escape {
+  color: #56b6c2;
+}
+.syntax--constant.syntax--numeric {
+  color: #d19a66;
+}
+.syntax--constant.syntax--other.syntax--color {
+  color: #56b6c2;
+}
+.syntax--constant.syntax--other.syntax--symbol {
+  color: #56b6c2;
+}
+.syntax--variable {
+  color: #e06c75;
+}
+.syntax--variable.syntax--interpolation {
+  color: #be5046;
+}
+.syntax--variable.syntax--parameter {
+  color: #abb2bf;
+}
+.syntax--string {
+  color: #98c379;
+}
+.syntax--string.syntax--regexp {
+  color: #56b6c2;
+}
+.syntax--string.syntax--regexp .syntax--source.syntax--ruby.syntax--embedded {
+  color: #e5c07b;
+}
+.syntax--string.syntax--other.syntax--link {
+  color: #e06c75;
+}
+.syntax--punctuation.syntax--definition.syntax--comment {
+  color: #5c6370;
+}
+.syntax--punctuation.syntax--definition.syntax--method-parameters,
+.syntax--punctuation.syntax--definition.syntax--function-parameters,
+.syntax--punctuation.syntax--definition.syntax--parameters,
+.syntax--punctuation.syntax--definition.syntax--separator,
+.syntax--punctuation.syntax--definition.syntax--seperator,
+.syntax--punctuation.syntax--definition.syntax--array {
+  color: #abb2bf;
+}
+.syntax--punctuation.syntax--definition.syntax--heading,
+.syntax--punctuation.syntax--definition.syntax--identity {
+  color: #61afef;
+}
+.syntax--punctuation.syntax--definition.syntax--bold {
+  color: #e5c07b;
+  font-weight: bold;
+}
+.syntax--punctuation.syntax--definition.syntax--italic {
+  color: #c678dd;
+  font-style: italic;
+}
+.syntax--punctuation.syntax--section.syntax--embedded {
+  color: #be5046;
+}
+.syntax--punctuation.syntax--section.syntax--method,
+.syntax--punctuation.syntax--section.syntax--class,
+.syntax--punctuation.syntax--section.syntax--inner-class {
+  color: #abb2bf;
+}
+.syntax--support.syntax--class {
+  color: #e5c07b;
+}
+.syntax--support.syntax--type {
+  color: #56b6c2;
+}
+.syntax--support.syntax--function {
+  color: #56b6c2;
+}
+.syntax--support.syntax--function.syntax--any-method {
+  color: #61afef;
+}
+.syntax--entity.syntax--name.syntax--function {
+  color: #61afef;
+}
+.syntax--entity.syntax--name.syntax--class,
+.syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #e5c07b;
+}
+.syntax--entity.syntax--name.syntax--section {
+  color: #61afef;
+}
+.syntax--entity.syntax--name.syntax--tag {
+  color: #e06c75;
+}
+.syntax--entity.syntax--other.syntax--attribute-name {
+  color: #d19a66;
+}
+.syntax--entity.syntax--other.syntax--attribute-name.syntax--id {
+  color: #61afef;
+}
+.syntax--meta.syntax--class {
+  color: #e5c07b;
+}
+.syntax--meta.syntax--class.syntax--body {
+  color: #abb2bf;
+}
+.syntax--meta.syntax--method-call,
+.syntax--meta.syntax--method {
+  color: #abb2bf;
+}
+.syntax--meta.syntax--definition.syntax--variable {
+  color: #e06c75;
+}
+.syntax--meta.syntax--link {
+  color: #d19a66;
+}
+.syntax--meta.syntax--require {
+  color: #61afef;
+}
+.syntax--meta.syntax--selector {
+  color: #c678dd;
+}
+.syntax--meta.syntax--separator {
+  background-color: #373b41;
+  color: #abb2bf;
+}
+.syntax--meta.syntax--tag {
+  color: #abb2bf;
+}
+.syntax--underline {
+  text-decoration: underline;
+}
+.syntax--none {
+  color: #abb2bf;
+}
+.syntax--invalid.syntax--deprecated {
+  color: #523d14 !important;
+  background-color: #e0c285 !important;
+}
+.syntax--invalid.syntax--illegal {
+  color: #ffffff !important;
+  background-color: #e05252 !important;
+}
+.syntax--markup.syntax--bold {
+  color: #d19a66;
+  font-weight: bold;
+}
+.syntax--markup.syntax--changed {
+  color: #c678dd;
+}
+.syntax--markup.syntax--deleted {
+  color: #e06c75;
+}
+.syntax--markup.syntax--italic {
+  color: #c678dd;
+  font-style: italic;
+}
+.syntax--markup.syntax--heading {
+  color: #e06c75;
+}
+.syntax--markup.syntax--heading .syntax--punctuation.syntax--definition.syntax--heading {
+  color: #61afef;
+}
+.syntax--markup.syntax--link {
+  color: #c678dd;
+}
+.syntax--markup.syntax--inserted {
+  color: #98c379;
+}
+.syntax--markup.syntax--quote {
+  color: #d19a66;
+}
+.syntax--markup.syntax--raw {
+  color: #98c379;
+}
+.syntax--source.syntax--c .syntax--keyword.syntax--operator {
+  color: #c678dd;
+}
+.syntax--source.syntax--cpp .syntax--keyword.syntax--operator {
+  color: #c678dd;
+}
+.syntax--source.syntax--cs .syntax--keyword.syntax--operator {
+  color: #c678dd;
+}
+.syntax--source.syntax--css .syntax--property-name,
+.syntax--source.syntax--css .syntax--property-value {
+  color: #828997;
+}
+.syntax--source.syntax--css .syntax--property-name.syntax--support,
+.syntax--source.syntax--css .syntax--property-value.syntax--support {
+  color: #abb2bf;
+}
+.syntax--source.syntax--gfm .syntax--markup {
+  -webkit-font-smoothing: auto;
+}
+.syntax--source.syntax--gfm .syntax--link .syntax--entity {
+  color: #61afef;
+}
+.syntax--source.syntax--go .syntax--storage.syntax--type.syntax--string {
+  color: #c678dd;
+}
+.syntax--source.syntax--ini .syntax--keyword.syntax--other.syntax--definition.syntax--ini {
+  color: #e06c75;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--modifier.syntax--import {
+  color: #e5c07b;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type {
+  color: #e5c07b;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--operator.syntax--instanceof {
+  color: #c678dd;
+}
+.syntax--source.syntax--java-properties .syntax--meta.syntax--key-pair {
+  color: #e06c75;
+}
+.syntax--source.syntax--java-properties .syntax--meta.syntax--key-pair > .syntax--punctuation {
+  color: #abb2bf;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator {
+  color: #56b6c2;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--delete,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--in,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--of,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--instanceof,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--new,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--typeof,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--void {
+  color: #c678dd;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--string.syntax--quoted.syntax--json {
+  color: #e06c75;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation.syntax--string {
+  color: #e06c75;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation {
+  color: #98c379;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--constant.syntax--language.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--constant.syntax--language.syntax--json {
+  color: #56b6c2;
+}
+.syntax--source.syntax--ruby .syntax--constant.syntax--other.syntax--symbol > .syntax--punctuation {
+  color: inherit;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--logical.syntax--python {
+  color: #c678dd;
+}
+.syntax--source.syntax--python .syntax--variable.syntax--parameter {
+  color: #d19a66;
+}
+</style>
+  </head>
+  <body class='markdown-preview' data-use-github-style><h1 id="robot-c-study-guide">Robot C Study Guide</h1>
+<h1 id="table-of-contents">Table of Contents</h1>
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+<ul>
+<li><a href="#robot-c-study-guide">Robot C Study Guide</a></li>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#concepts">Concepts</a><ul>
+<li><a href="#how-do-you-learn-robot-c">How do you learn Robot C?</a></li>
+<li><a href="#the-display">The display</a><ul>
+<li><a href="#review">Review</a></li>
+<li><a href="#practice">Practice</a></li>
+</ul>
+</li>
+<li><a href="#initializing-and-reading-sensors">Initializing and reading sensors</a><ul>
+<li><a href="#review">Review</a></li>
+<li><a href="#practice">Practice</a><ul>
+<li><a href="#sensor-initialization">Sensor initialization:</a></li>
+<li><a href="#sensor-reading">Sensor reading:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#buttons">Buttons</a><ul>
+<li><a href="#review">Review</a></li>
+<li><a href="#practice">Practice</a></li>
+</ul>
+</li>
+<li><a href="#the-motors">The motors</a><ul>
+<li><a href="#review">Review</a></li>
+<li><a href="#practice">Practice</a></li>
+</ul>
+</li>
+<li><a href="#motor-encoders">Motor encoders</a><ul>
+<li><a href="#review">Review</a></li>
+<li><a href="#practice">Practice</a></li>
+</ul>
+</li>
+<li><a href="#time-waiting-and-timers">Time, waiting, and timers</a><ul>
+<li><a href="#review">Review</a></li>
+<li><a href="#practice">Practice</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#skills">Skills</a><ul>
+<li><a href="#waiting-and-the-concept-of-an-event">Waiting and the concept of an event</a><ul>
+<li><a href="#starting-a-program-with-a-button-press-and-release-then-responding-to-the-button">Starting a program with a button press and release, then responding to the button</a></li>
+<li><a href="#waiting-for-sensor-events">Waiting for sensor events</a></li>
+<li><a href="#waiting-for-simultaneous-and-multiple-events">Waiting for simultaneous and multiple events</a></li>
+</ul>
+</li>
+<li><a href="#keeping-track-of-things-using-sensors-in-a-long-program">Keeping track of things using sensors in a long program</a></li>
+<li><a href="#design-pattern-responding-to-events-in-a-loop">Design pattern: responding to events in a loop</a></li>
+</ul>
+</li>
+<li><a href="#applications">Applications</a><ul>
+<li><a href="#mowing-a-rectangular-lawn">Mowing a rectangular lawn</a></li>
+<li><a href="#detecting-holes-in-a-fence">Detecting holes in a fence</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h1 id="introduction">Introduction</h1>
+<p>Robot C is not actually all that different from the C++ that you&#39;re already learning.  However, it differs in how it is applied.  In a standard C++ program we write code that follows a relatively strict procedure to get to an end result.  In Robot C we are writing code that <strong>responds to events</strong>.  Event-driven programming is a fundamentally different concept from what you&#39;ve been learning so far, and this is why Robot C might appear to be difficult.  This guide will follow a similar pattern to the drill problems, but will also contain additional information that will help you through the difficult parts.</p>
+<p>The guide is organized into three sections:</p>
+<ol>
+<li><strong>Concepts</strong>: Concepts are fundamental things you need to be able to do before writing more complex Robot C programs.  For example, turning the motors on, or initializing the encoders.</li>
+<li><strong>Skills</strong>: Skills use multiple concepts to achieve something useful.  Once you master a given skill, you will be ready to combine it with other skills to achieve a complex task.  For example, a very important skill might be waiting for a button to be pressed and released, then taking action based on which button was pressed.</li>
+<li><strong>Applications</strong>: Applications are the final piece of the puzzle. They are the &quot;big questions&quot; that we ask on exams and assignments.  They use multiple skills, usually do not follow a linear programming path, and require you to make assumptions.  For example, assuming that the robot has a lawnmower attachment but is otherwise in the standard lab configuration, how would you go about mowing a lawn?</li>
+</ol>
+<p>If you are not comfortable with Robot C, I suggest you begin with the concepts section.  However, feel free to skip ahead as you wish.  If you feel that you aren&#39;t progressing, go back a level and re-enforce what you need before coming back.</p>
+<p>One of the major challenges of programming Robot C is that you may not have access to the robots, so you can&#39;t tell if you are right until you either test it out or see a solution.  Although this is a big challenge, it mimics what you will be doing on the exam.  I suggest that if you are going to study Robot C for the exam, begin by writing out the code by hand, then check it against the solutions.  However, you may also choose to run Robot C and see if the code at least compiles before checking the solution.</p>
+<p>In order to keep the length of this document manageable, I will be supplying solutions in a separate document.  </p>
+<h1 id="concepts">Concepts</h1>
+<p><strong>Cheat sheet ideas</strong>: what is the standard lab configuration?  Which motors and sensors are available?  How are they organized on the robot?</p>
+<p><strong>NOTE:</strong> Unless otherwise specified, the robot is in standard lab configuration.</p>
+<h2 id="how-do-you-learn-robot-c-">How do you learn Robot C?</h2>
+<p>Your first step should be to get a really good handle on how the display works, since it allows you to write information to the screen to better understand what your program is doing.  It is great for debugging.  Your next step should be to learn how the robot can interact with the world, and to learn each subsystem on its own.  Learn to use each of the sensors and the motors, so that your robot can actually do things.  Now, if that were all, Robot C would be a lot easier.  But there is another aspect to programming a robot that interacts in the real world that makes things a lot more challenging.</p>
+<p>The final step is something that we don&#39;t usually consider in C++ - time.  In our C++ programs we had only a very limited idea of time.  Either we waited on the user to do something, or we computed as fast as we possibly could.  However, the robot is a physical thing, and it doesn&#39;t react &quot;as quickly as possible&quot;.  If you try to turn, you have to wait until the turn is finished, even if the computer on board is fast enough to run your code in a few microseconds!  In fact, your robot will spend most of its time waiting.  It might be waiting on you to push a button, or waiting on its sensors to indicate that a certain motion is complete.  A Robot C program can be thought of as tiny bursts of furious computation followed by agonizingly long waits.  In order to really understand Robot C, you need to really understand the different timescales on which the robot operates - the super fast timescale of computation, and the lazy timescale of physical action.</p>
+<p>In this section, your goal will be to learn each subsystem individually.  Later, we&#39;ll think about how they all fit together.</p>
+<h2 id="the-display">The display</h2>
+<h3 id="review">Review</h3>
+<p>The display is written to using the function <code>displayString</code>.  This function takes at least two inputs:</p>
+<ul>
+<li>line number (an integer from 0 to 7)</li>
+<li>The output string itself</li>
+</ul>
+<p>In addition to these two things, you may wish to print variables to the screen.  To do so, you specify in the output string that these variables will be coming using placeholders that begin with a percent sign %, and that have a <strong>format specifier</strong> following them.  Finally, after the output string, you add the variables themselves in the order you want them to appear.  For example, to display an integer, x, to the screen, without any additional information:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>displayString(0,&quot;%d&quot;,x);</span></span></span></div></pre><p>Notice that I still had to include the output string, even though it only contained the placeholder.  This is a very important distinction between Robot C and C++!  You <strong>always</strong> need an output string.  The format specifiers that you have access to are:</p>
+<ul>
+<li><strong>%d</strong>: an integer (if you&#39;re wondering, d stands for &quot;decimal&quot;, which is meant to distinguish it from &quot;binary&quot;, and <strong>not</strong> to imply that you can store numbers that contain decimal points.  It&#39;s a confusing and unfortunate term that comes from the ancient times when computers didn&#39;t do floating point comutations very well)</li>
+<li><strong>%f</strong>: floating point.  There are additional specifiers you can have for floating point numbers.  In particular, you can specify the number of digits of precision you want to display as follows:<ul>
+<li><strong>%.pf</strong>, where <strong>p</strong> is some whole number.  For example, %.2f means &quot;display a floating point number with 2 digits after the decimal point&quot;.  This number must be a constant, it can&#39;t be a variable.</li>
+</ul>
+</li>
+<li><strong>%s</strong>: a string.  It might sound strange to display a string inside of another string, but if you are building up a string based on user input, for example, it&#39;s useful.  In this course we rarely use this option.</li>
+</ul>
+<h3 id="practice">Practice</h3>
+<ol>
+<li>Write &quot;Hello, world!&quot; to the display on line 3.</li>
+<li>Write your first and last name to the screen on different lines.</li>
+<li>If you have written &quot;Hi!&quot; on line 1, what happens if you write &quot;There&quot; to line 1 after the first string has been displayed?</li>
+<li>Declare an integer and set it to have a value of 15.  Display it to the screen.</li>
+<li>Declare a float and an integer.  Set their values to whatever you&#39;d like.  Display both the float and the integer on the same line.</li>
+<li>Declare two integers, A and B, and set their values to 5 and 7, respectively.  Using the variables and anything else you feel you need, display the string <code>&quot;A = 5, B = 7&quot;</code> to the screen.</li>
+<li>Declare a float and set it equal to 1.234567.  Display it to the screen with only two decimal places.</li>
+</ol>
+<p><strong>Cheat sheet ideas</strong>: how to display multiple variables, especially floating point variables, to the screen.</p>
+<h2 id="initializing-and-reading-sensors">Initializing and reading sensors</h2>
+<h3 id="review">Review</h3>
+<p>Working with sensors is done in two parts.  First, you must initialize the sensor.  Next, you need to actually read from it.  </p>
+<p>Sensor initialization is done to tell the robot two things - which sensor is on which point, and which mode is the sensor in.  For simple sensors like the touch sensor there is only one mode.  However, the color sensor, and some of the other sensors you may be using for your project, have multiple modes.  A very common mistake in the beginning is to accidentally initialize the sensors to the wrong mode.  The modes we will be using for most of this course are:</p>
+<ul>
+<li><strong>Ultrasonic</strong>: <code>sensorSONAR</code></li>
+<li><strong>Touch</strong>: <code>sensorTOUCH</code></li>
+<li><strong>Color</strong>: <code>sensorColorNxtFULL</code></li>
+</ul>
+<p>In order to initialize, you use the <code>sensorType</code> command.  For instance, if the color sensor is on port S1, you write</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>sensorType[S1]&nbsp;=&nbsp;sensorColorNxtFULL;</span></span></span></div></pre><p>You only need to initialize the sensors once in your program, and typically you do this at the very top.  There is very little advantage to initializing your sensors anywhere else.</p>
+<p>Reading from the sensor is done via the <code>sensorValue</code> command.  This command is supplied with the sensor you want to read from, and it <strong>always</strong> returns an integer value.  For instance, if you want to read the color sensor that we set up previously, you can do this:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>int&nbsp;colorValue&nbsp;=&nbsp;sensorValue[S1];</span></span></span></div></pre><p>You cannot read a sensor that you haven&#39;t initialized (although give it a shot! You&#39;ll see that the code will compile, you&#39;ll just get strange readings).</p>
+<h3 id="practice">Practice</h3>
+<h4 id="sensor-initialization-">Sensor initialization:</h4>
+<ol>
+<li>Initialize the ultrasonic sensor, on port S2.</li>
+<li>Initialize the touch sensor, on port S1.</li>
+<li>Initialize the color sensor to read the full range of colors, on port S3.</li>
+</ol>
+<h4 id="sensor-reading-">Sensor reading:</h4>
+<p>Assume that the sensors have been initialized as above.</p>
+<ol>
+<li>What is the datatype of all data returned by all sensors? (Hint: all sensors commonly used in class return the same type of data)</li>
+<li>Read the value from the color sensor and print it to the screen.</li>
+<li>Read the value from the color sensor and print the color it represents to the screen.</li>
+<li>What does the ultrasonic sensor read when it is not pointing at anything?</li>
+<li>What is the range of the ultrasonic sensor, in meters?  What does the ultrasonic sensor read if there is an object just inside of this distance?</li>
+<li>Read the ultrasonic sensor and convert its reading to a distance in meters.  Print that distance to the screen.</li>
+<li>What are the possible values that the touch sensor can read?</li>
+</ol>
+<p><strong>Cheat sheet ideas</strong>: the return values of all of the sensors, and their setup codes.</p>
+<h2 id="buttons">Buttons</h2>
+<h3 id="review">Review</h3>
+<p>There are three usable buttons on the robot, and one, the grey button, which stops the program.  The buttons are numbered 1, 2, and 3, and are accessed through the variable <code>nNxtButtonPressed</code>, which is created for you by Robot C.  This variable <strong>always</strong> stores the button number that is <strong>currently</strong> being pressed, or -1 if nothing is being pressed.  It does not retain any information about the last button to be pressed if that button has been released.  Also, when you press more than one button, the behaviour is completely undefined and depends on how the robot measured its button presses - so just avoid pressing more than one button at a time!</p>
+<h3 id="practice">Practice</h3>
+<ol>
+<li>What is the value of <code>nNxtButtonPressed</code> when nothing is being pushed?</li>
+<li>What are the possible values that <code>nNxtButtonPressed</code> can be when a button is being pushed?</li>
+<li>Is 0 a valid button value? Why or why not?</li>
+<li>Which button gives which value?</li>
+<li>What is the value of <code>nNxtButtonPressed</code> once a button has been released?</li>
+</ol>
+<p><strong>Cheat sheet ideas</strong>: which button is which, and how they are organized on the robot&#39;s chassis.</p>
+<h2 id="the-motors">The motors</h2>
+<h3 id="review">Review</h3>
+<p>Unlike sensors, you do not need to initialize a motor.  This is because the NXT&#39;s motor ports are <strong>only</strong> for motors.  As a result, as long as you have motors attached to a given port, you can set them.  Setting motors is done through the <code>motor</code> command, and typically we give that command a motor name.  For instance, to set motor A to have 50% power, we say:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>motor[motorA]&nbsp;=&nbsp;50;</span></span></span></div></pre><p>Motor power is an integer between -100 and 100.  Internally, Robot C prevents you from setting motors beyond 100% power, positive or negative. So even if you do this:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>motor[motorA]&nbsp;=&nbsp;100000;</span></span></span></div></pre><p>The robot will just set its motor power to 100.</p>
+<p>Motors can be set via a variable.  For example, the following code is valid:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>int&nbsp;power&nbsp;=&nbsp;50;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;motor[motorB]&nbsp;=&nbsp;power;</span></span></span></div></pre><p>And motorB will be set to have a power of 50%.</p>
+<p>In the standard lab configuration, if you run both motors at the same positive power, the robot moves forward.  If you run them at the same negative power, the robot moves backward.  If you run them at different powers the robot will turn.</p>
+<h3 id="practice">Practice</h3>
+<ol>
+<li>In the standard lab configuration, which motor ports are used, and where are those motors located?</li>
+<li>Set motor A and motor C to have two different values.</li>
+<li>Stop the motors.</li>
+<li>What happens, in the standard lab configuration, if the motors are set to different values and the robot is put on the floor?</li>
+</ol>
+<h2 id="motor-encoders">Motor encoders</h2>
+<h3 id="review">Review</h3>
+<p>Motor encoders are special sensors that detect rotation of the motors themselves.  When the motors are attached the wheels, the encoders can be used to determine distance travelled.  On their own, they only sense the total number of degrees that the <strong>output</strong> of the motor has turned since the encoders were last reset.  The encoders are accessed through the <code>nMotorEncoder</code> variable like this:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>int&nbsp;MAE&nbsp;=&nbsp;nMotorEncoder[motorA];</span></span></span></div></pre><p>The variable MAE now contains the current value of motor A&#39;s encoder.</p>
+<p>Encoders measure rotation in terms of &quot;ticks&quot;.  In the case of the NXT&#39;s motors, there are exactly 360 ticks per revolution of the motor&#39;s output shaft, so one tick equals one degree of rotation.</p>
+<p>Encoders cannot be reset to an arbitrary value.  For instance, the following code does not work:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>nMotorEncoder[motorA]&nbsp;=&nbsp;50;</span></span></span></div></pre><p>What this actually might do is just reset the motor to 0.  The only way to change the value of an encoder without moving the motor itself is to reset its value to zero:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>nMotorEncoder[motorA]&nbsp;=&nbsp;0;</span></span></span></div></pre><p>Finally, to determine distance travelled by the robot in standard lab configuration, we need to know the circumference of the wheel and how many revolutions that the wheel has performed.  The radius of the wheel is 1.5cm, and therefore the circumference is <code>2*pi*1.5</code>.  The number of rotations that the wheel has performed is <code>nMotorEncoder[motorA]/360.0</code> (or <code>motorB</code> or <code>motorC</code>).   Therefore, for the standard lab configuration, the total distance travelled is:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>float&nbsp;dist&nbsp;=&nbsp;2*PI*1.5*nMotorEncoder[motorA]/360.0;</span></span></span></div></pre><p>This distance will be in centimeters.</p>
+<h3 id="practice">Practice</h3>
+<ol>
+<li>Reset motor C&#39;s encoder to 0</li>
+<li>Is it possible to set an encoder to hold the value 1850 without moving the motors?</li>
+<li>If you run the motors backwards, do the encoders count up or down?</li>
+<li>Assuming that the robot was moving forward and that its encoders were initialized to zero before the move, use motor A&#39;s encoder to determine the distance travelled.</li>
+</ol>
+<p><strong>Cheat sheet ideas</strong>: how to reset and read encoders.  How to determine distance travelled with encoders.  Which direction the encoders count when moving forward/back.</p>
+<h2 id="time-waiting-and-timers">Time, waiting, and timers</h2>
+<h3 id="review">Review</h3>
+<p>In essence, a Robot C program can be broken into stages: set-up and wait.  The programmer first sets up the robot to perform a certain action (or to do nothing), then waits until some event takes place.  The robot continues to perform the action, even if it is to do nothing at all, until the event occurs.  How to handle complicated events based on the sensors is part of the next section.  In this section, we&#39;ll talk only about timing.</p>
+<p>The first way we&#39;ll talk about to wait is the <code>wait</code> functions.  These functions completely halt the robot&#39;s computer from taking any additional actions until the time is up.  By far the most common one is <code>wait1Msec</code>, which works like this:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>wait1Msec(1000);</span></span></span></div></pre><p>As the name suggests, this will wait for 1000x1ms, or 1 second.  Other options you have are:</p>
+<ul>
+<li><code>wait10Msec(x)</code> - waits for 10*x ms</li>
+<li><code>wait100Msec(x)</code> - waits for 100*x ms</li>
+<li><code>wait1Sec(x)</code> - waits for 1*x seconds</li>
+</ul>
+<p>Usually we use wait1Msec because it tends to give us greater control, and because we can give that function a fairly large value to wait for.  However, one of the huge disadvantages of waiting for a specified time, as stated above, is that we can&#39;t do anything else while we are waiting.  For example, what if we were making a game where the user has 5 seconds to catch the robot and push the orange button?  In this case, we can&#39;t use wait, since we have to have the robot do something during the wait (run away from the user, say).  In order to handle this, we use the timers.</p>
+<p>There are 4 timers available on the robot, named <code>T1, T2, T3, and T4</code>.  They fundamentally give us time in 1mS intervals.  They are accessed through an array, and they return to us an integer (actually, a long integer, but for almost all purposes this doesn&#39;t matter).  They start counting as soon as the program starts, and they can <strong>only</strong> be reset to 0, just like with encoders.  In order to reset them, we can use the <code>clearTimer</code> function:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>ClearTimer(T1);&nbsp;//resets&nbsp;timer&nbsp;T1&nbsp;to&nbsp;0</span></span></span></div></pre><p>In order to read the timers, you first have to decide the unit of time you&#39;re interested in.  Your options are milliseconds, 10 millisecond increments, and 100 millisecond increments.  For the next few examples, we&#39;ll be accessing timer 2, but the procedure is the same for all of the timers.</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>int&nbsp;timeInMs&nbsp;=&nbsp;time1[T2];</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;timeIn10Ms&nbsp;=&nbsp;time10[T2];</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;timeIn100Ms&nbsp;=&nbsp;time100[T2];</span></span></span></div></pre><p>One very important thing to note is that <code>time1[T2]</code>, <code>time10[T2]</code>, and <code>time100[T2]</code> all come from the <strong>same timer</strong>, T2.  It&#39;s the same time, just different units. </p>
+<h3 id="practice">Practice</h3>
+<ol>
+<li>How many separate timers are there on the robot?</li>
+<li>Do the variables time1[0] and time100[0] represent separate timers?</li>
+<li>If time1[0] is reading 3400, how much time has passed since it was initialized?  If time100[0] is reading 3400, how much time has passed since it was initialized?</li>
+<li>How do you reset a timer?</li>
+<li>Can you set the timer to an arbitrary value, like 1500?</li>
+</ol>
+<p><strong>Cheat sheet ideas</strong>: how to initialize a timer, how to choose a timer to use, how many different timer ticks can be measured.</p>
+<h1 id="skills">Skills</h1>
+<h2 id="waiting-and-the-concept-of-an-event">Waiting and the concept of an event</h2>
+<p>An <strong>event</strong> is key to event-driven programming.  Typically events are defined using the sensors.  For example, we might wait until the color sensor is reading red, or until the touch sensor has been pressed.  In order to define an event for your program, go through the following steps:</p>
+<ol>
+<li>Determine the conditions that will trigger the event</li>
+<li>Determine if there is anything you need to do while waiting for the event</li>
+<li>Determine what setup needs to be done before the event, and what actions are taken after the event</li>
+</ol>
+<p>The actual code for writing an event tends to follow a basic pattern.  In pseudocode:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>//setup,&nbsp;especially&nbsp;your&nbsp;sensors&nbsp;if&nbsp;needed</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>while(sensor&nbsp;value&nbsp;is&nbsp;NOT&nbsp;equal&nbsp;to&nbsp;the&nbsp;condition&nbsp;for&nbsp;the&nbsp;event)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>{</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>//do&nbsp;what&nbsp;you&nbsp;need&nbsp;to&nbsp;do&nbsp;while&nbsp;waiting</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>}</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>//take&nbsp;the&nbsp;post-event&nbsp;actions</span></span></span></div></pre><p>As a concrete example, let&#39;s apply the above steps to the following problem:</p>
+<ul>
+<li><p>Drive the robot forward until the color sensor senses RED (assume that the color sensor is on port S1).</p>
+</li>
+<li><p>The condition that will trigger the event is <code>sensorValue[S1]</code> returns the value <code>colorRed</code> (numerical value of 5).</p>
+</li>
+<li>We don&#39;t need to do anything while waiting for the event.</li>
+<li>We need to start the motors to move forward before we start waiting.</li>
+<li>Although it&#39;s not obvious, we need to <strong>stop</strong> the motors after the event takes place (we said that we will drive forward <strong>until</strong> the color sensor reads red, which implies we need to stop)</li>
+</ul>
+<p>The code to do this is:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>sensorType[S1]&nbsp;=&nbsp;sensorColorFULL;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>motor[motorA]&nbsp;=&nbsp;50;&nbsp;//we&nbsp;can&nbsp;choose&nbsp;an&nbsp;abitrary&nbsp;power</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>motor[motorC]&nbsp;=&nbsp;50;&nbsp;//the&nbsp;setup</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>while(sensorValue[S1]&nbsp;!=&nbsp;5){}&nbsp;//remember,&nbsp;the&nbsp;condition&nbsp;is&nbsp;that&nbsp;the&nbsp;event</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>//has&nbsp;NOT&nbsp;happened&nbsp;yet</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>motor[motorA]&nbsp;=&nbsp;0;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>motor[motorC]&nbsp;=&nbsp;0;&nbsp;//stop&nbsp;after&nbsp;the&nbsp;event</span></span></span></div></pre><h3 id="starting-a-program-with-a-button-press-and-release-then-responding-to-the-button">Starting a program with a button press and release, then responding to the button</h3>
+<p>A very common problem involves waiting on a button press and release, then taking action depending on which button was pressed.  In this problem, you are tasked with waiting on a button press and release, then printing the button number to the screen.</p>
+<ol>
+<li>How many events are you waiting on?</li>
+<li>What are they?</li>
+<li>Go through the design process above for each of the events <strong>before writing code</strong></li>
+<li>Write the code to solve the problem.</li>
+</ol>
+<h3 id="waiting-for-sensor-events">Waiting for sensor events</h3>
+<p>For these questions, follow the design process for events before you code.</p>
+<ol>
+<li>Wait for the touch sensor to be pressed and released, then move forward.</li>
+<li>Drive forward at 100% power until the ultrasonic sensor reads less than 100.  Then slow down to 20% power until the sensor reads less than 20.  Stop after that.</li>
+</ol>
+<h3 id="waiting-for-simultaneous-and-multiple-events">Waiting for simultaneous and multiple events</h3>
+<p><strong>Note:</strong> This is a <strong>big</strong> topic, and requires careful study.</p>
+<p>One of the bigger challenges in Robot C programming is the ability to react to events that might occur at the same time.  This is especially challenging if the events do radically different things.  For example:</p>
+<p>Drive forward at 50% power until the ultrasonic sensor reads less than 100, then slow down to 20% power until the ultrasonic sensor reads less than 20, then stop.  If, during the 20% power phase, the color sensor reads red, the robot should increase its speed to 30% power and then keep it there until it stops, even it no longer sees red.  Also stop immediately if the touch sensor is pressed.</p>
+<p>The challenge is that last part - no matter what the robot is doing, and no matter what the robot is waiting for, it must <strong>also</strong> wait for the touch sensor to be pressed.  However, we can&#39;t treat that as a separate event to wait for.  We have to wait for both events at the same time, and respond appropriately to whichever one actually occurred.</p>
+<p>The key here is to expand the design process above slightly.   First, rather than defining &quot;the condition&quot; that triggers the event, we identify <strong>all</strong> conditions that identify the event.  This typically means that you will also start to define a lot more events.  Let&#39;s take the example above and unpack all of the events that might happen:</p>
+<ol>
+<li>The ultrasonic is reading greater than 100 and the touch sensor is not pressed</li>
+<li>The ultrasonic is reading greater than 100 and the touch sensor is pressed</li>
+<li>The ultrasonic is reading less than 100 but greater than 20, the color sensor does not detect red, and the touch sensor is not pressed</li>
+<li>The ultrasonic is reading less than 100 but greater than 20, the color sensor detects red, and the touch sensor is not pressed.</li>
+<li>The ultrasonic is reading less than 100 but greater than 20, and the touch sensor is pressed</li>
+<li>The ultrasonic is reading less than 20</li>
+</ol>
+<p>Did you notice how event 5 ignores the color sensor, and how event 6 ignores the touch sensor?  That&#39;s because they were irrelevant, and would lead to considerably more events.  It doesn&#39;t matter if the color sensor detects red if the touch sensor is pressed, for instance.</p>
+<p>The next step is to find a way to efficiently wait for any of the events, and respond appropriately. To do so, I recommend keeping track of which event has triggered at a given time.  Let&#39;s do this the simple way and keep an integer called <code>state</code> that holds the following values:</p>
+<ul>
+<li>0 = travel at 50% speed</li>
+<li>1 = travel at 20% speed</li>
+<li>2 = travel at 30% speed</li>
+<li>3 = stop</li>
+</ul>
+<p>Now, let&#39;s see which events change the state, and how they change it.</p>
+<p>The robot begins in state 0.  Event 1 changes it to state 1.  Event 4 changes it to state 2.  Events 2, 5, and 6 change it to state 3.</p>
+<p>Now that we are speaking about the robot&#39;s behaviour in terms of state, it&#39;s a lot more clear what we need to do:</p>
+<ol>
+<li>Set up the sensors and get the robot moving at 50% speed.  Set the state to 0.</li>
+<li>Loop <strong>while state is not 3</strong>.</li>
+<li>Inside of that loop, first check the sensors to see what the state should be.</li>
+<li>Once the state is known, change the speed appropriately.</li>
+<li>On exiting the loop, stop.</li>
+</ol>
+<p>In code, this is:</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>sensorType[S1]&nbsp;=&nbsp;sensorSONAR;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>sensorType[S2]&nbsp;=&nbsp;sensorTOUCH;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>sensorType[S3]&nbsp;=&nbsp;sensorColorFULL;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>int&nbsp;state&nbsp;=&nbsp;0;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>motor[motorA]&nbsp;=&nbsp;50;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>motor[motorC]&nbsp;=&nbsp;50;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>while(state&nbsp;!=&nbsp;3)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>{</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>if(sensorValue[S1]&nbsp;&lt;&nbsp;100&nbsp;&amp;&amp;&nbsp;state&nbsp;!=&nbsp;2)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;{</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>state&nbsp;=&nbsp;1;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;motor[motorA]&nbsp;=&nbsp;20;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;motor[motorC]&nbsp;=&nbsp;20;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>}</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;if(sensorValue[S3]&nbsp;==&nbsp;5&nbsp;&amp;&amp;&nbsp;state&nbsp;==&nbsp;1)&nbsp;//red</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;{</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>state&nbsp;=&nbsp;2;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;motor[motorA]&nbsp;=&nbsp;30;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;motor[motorC]&nbsp;=&nbsp;30;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>}</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;if(sensorValue[S1]&nbsp;&lt;=&nbsp;20&nbsp;||&nbsp;sensorValue[S2]&nbsp;==&nbsp;1)</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;{</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>state&nbsp;=&nbsp;3;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;motor[motorA]&nbsp;=&nbsp;0;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>&nbsp;&nbsp;&nbsp;&nbsp;motor[motorC]&nbsp;=&nbsp;0;</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span>&nbsp;&nbsp;</span><span class="syntax--meta syntax--paragraph syntax--text"><span>}</span></span></span></div><div class="line"><span class="syntax--text syntax--plain"><span class="syntax--meta syntax--paragraph syntax--text"><span>}</span></span></span></div></pre><p>There are a few things to notice here.  First, I had to make sure that we weren&#39;t in state 2 when transitioning into state 1 - during the while loop, I might see red for a short time and then never see it again.  The behaviour, as written, requires me to increase motor power once I see red I increase the power and never decrease it again.  Second, I had to make sure that I was already in state 1 before increasing that power - I might have seen red while travelling far from the wall, at which point the appropriate action would be to remain in state 0.  Third, notice how I changed the motor power inside the if statements.  This is purely for a slight efficiency increase - I should only change the motor power when the state changes.  </p>
+<p>Let&#39;s try it out.</p>
+<ol>
+<li>Write a program in which the robot drives forward for a minimum of 5m.  After 5m, if the robot detects the color red, stop for 1 second.  If it detects the color blue, turn clockwise for 3 seconds.  If the touch sensor is pressed at any time, even during the first 5m, it should stop.</li>
+<li>The robot begins stationary.  If the ultrasonic reads less than 100, it should back away as fast as it can for 3 seconds no matter what it is currently doing.  If at any time the touch sensor is pressed, it should spin in place for 2 seconds.  If at any time the orange button is pressed, it should move forward as fast as it can.  The behaviour of the robot is up to you if somehow the touch sensor and the orange button are pressed at the same time.  At the end of any of these actions, it should stop.  The robot should continue doing this for at most 3 minutes.</li>
+</ol>
+<h2 id="keeping-track-of-things-using-sensors-in-a-long-program">Keeping track of things using sensors in a long program</h2>
+<ol>
+<li>Write a program in which the robot drives forward for 5 seconds, turns clockwise for 1 second using tank steering, and drives backward for 5 seconds.  Determine the total distance travelled forward and backward while ignoring the turns, and print that distance to the screen.</li>
+<li>A robot is set up to count the number of people passing through a doorway using the ultrasonic sensor.  When a person passes through the door, the ultrasonic sensor reads less than 100.  Write a program that enables the robot to count the number of people going through the doorway.  Output the number to screen as it changes.  Allow the program to run for 10 minutes.</li>
+</ol>
+<h2 id="design-pattern-responding-to-events-in-a-loop">Design pattern: responding to events in a loop</h2>
+<ol>
+<li>The robot will begin on white paper.  Drive at 100% power.  If the robot encounters red, drive at 50% power.  If the robot encounters blue, drive at 20% power.  For any other colors, keep going at the current power setting.</li>
+<li><p>The robot is driving on a large square of white paper, 10m x 10m, bordered by a thick black border (30cm) on all sides.  On the square, distributed randomly, are small, 10cm x 10cm squares of different colors.  Complete the following actions depending on what the color sensor reads:</p>
+</li>
+<li><p>When black is encountered, back up for 500ms, then turn 90 degrees clockwise.  You may assume it takes 750ms to turn 90 degrees at 50% power.</p>
+</li>
+<li>When red is encountered, increase the motor power by 5% up to a maximum of 100%.</li>
+<li>When blue is encountered, decrease the motor power by 5% down to a minimum of 30%</li>
+<li>If yellow is encountered, stop the program.</li>
+</ol>
+<h1 id="applications">Applications</h1>
+<h2 id="mowing-a-rectangular-lawn">Mowing a rectangular lawn</h2>
+<p>Hey, this looks familiar... Assume that the robot has a lawn mower attachment that is 30 centimeters wide, and that the robot is pulling the attachment but is otherwise in the standard lab configuration.  Assuming that the lawn you need to mow is rectangular and surrounded by a black path, mow the lawn.</p>
+<h2 id="detecting-holes-in-a-fence">Detecting holes in a fence</h2>
+<p>The robot is in standard lab configuration with one modification - the ultrasonic sensor has been rotated 90 degrees to the right so it is viewing the distance to the side of the robot.  On the right hand side is a fence.  This fence has holes in it.  At the end of the fence is a wall that the robot will run into.  Count how many holes are in the fence, stopping at the wall once the robot hits it.  Display the number of holes on the screen.</p></body>
+</html>

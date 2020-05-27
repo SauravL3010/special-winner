@@ -1,0 +1,7 @@
+computer 800.99 0
+mouse 20 1 25
+monitor 175.72 1 10
+Keyboard 98.34 0
+mousepad 5 1 25
+power_supply 50 0
+wireless_router 150 1 15

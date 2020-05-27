@@ -1,0 +1,17 @@
+LDFLAGS = -g -std=c++11
+CFLAGS = -Wno-write-strings -Wall -g -Werror
+CC = g++
+
+EXE = coffee_rating
+
+all:	clean coffee_rating_canonical coffee_rating
+	chmod +x *.py
+
+clean:
+	/bin/rm -rf *.o $(EXE)
+
+coffee_rating: coffee_rating.cpp
+	g++ coffee_rating.cpp -o coffee_rating
+
+coffee_rating_canonical: coffee_rating_canonical.cpp
+	g++ coffee_rating_canonical.cpp -o coffee_rating_canonical

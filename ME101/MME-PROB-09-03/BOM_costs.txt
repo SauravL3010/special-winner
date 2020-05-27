@@ -1,0 +1,76 @@
+HAL_9000
+                  gear_20           2      0.86
+                  gear_24           2      1.32
+            liftarm_L_3x5           2      0.28
+                  beam_5M          13      1.04
+                 beam_11M           7      3.22
+$6.72
+
+WALL-E
+                  gear_24           2      1.32
+            liftarm_L_2x4           1      0.07
+                  beam_5M          35      2.80
+                 beam_11M          12      5.52
+                  beam_7M           5      0.95
+                  beam_9M          12      5.76
+$16.42
+
+E-type
+ liftarm_double_bent_11_5           8      1.68
+                  beam_9M           3      1.44
+                  beam_7M           8      1.52
+                  beam_5M          96      7.68
+                 beam_11M           2      0.92
+            liftarm_L_3x5           6      0.84
+            liftarm_T_3x3           7      1.33
+$15.41
+
+Design_4
+            liftarm_L_2x4           7      0.49
+ liftarm_double_bent_11_5          11      2.31
+                  gear_20           5      2.15
+            liftarm_L_3x5           6      0.84
+            liftarm_T_3x3          10      1.90
+$7.69
+
+Muira
+            liftarm_T_3x3           9      1.71
+ liftarm_double_bent_11_5           5      1.05
+            liftarm_L_3x5           7      0.98
+                  gear_24          12      7.92
+                  beam_9M           5      2.40
+$14.06
+
+Optimus_Prime
+                  gear_24           5      3.30
+ liftarm_double_bent_11_5          11      2.31
+                 beam_11M           6      2.76
+            liftarm_T_3x3          10      1.90
+                  beam_7M          10      1.90
+                  gear_20           6      2.58
+$14.75
+
+T-1000
+ liftarm_double_bent_11_5          11      2.31
+                  beam_5M          29      2.32
+                  beam_7M           9      1.71
+            liftarm_T_3x3           9      1.71
+                  beam_9M           6      2.88
+            liftarm_L_2x4          87      6.09
+                  gear_24          10      6.60
+$23.62
+
+Enterprise
+                  gear_24           7      4.62
+ liftarm_double_bent_11_5           5      1.05
+            liftarm_L_3x5          12      1.68
+                  beam_5M          44      3.52
+            liftarm_L_2x4          49      3.43
+                  gear_20           6      2.58
+                  beam_7M           1      0.19
+                 beam_11M           8      3.68
+            liftarm_T_3x3           7      1.33
+$22.08
+
+The design with the lowest cost is HAL_9000.
+The design with the most number of parts is T-1000.
